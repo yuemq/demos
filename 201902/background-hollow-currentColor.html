@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小图标文字对齐,hover状态图片和文字都变色</title>
+    <!--
+    网页：
+    https://www.zhangxinxu.com/wordpress/2013/07/css-%e8%83%8c%e6%99%af%e8%89%b2%e5%9b%be%e7%89%87%e9%95%82%e7%a9%ba%e6%8a%80%e6%9c%af/-->
+    <!--
+    图标和文字对齐：https://www.zhangxinxu.com/wordpress/2016/03/css-layout-base-20px/
+    -->
+    <!--根据上面2篇文章，综合得到了下面的案例-->
+    <style>
+        .link {
+            line-height: 20px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #00a4e3;
+            text-decoration: none;
+        }
+
+        .link2:hover {
+            color: #cd0000;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 16px;
+            height: 20px;
+            background: url("img/delete.png") no-repeat center;
+            background-color: currentColor;
+            white-space: nowrap;
+            letter-spacing: -1em;
+            text-indent: -99em;
+        }
+
+        .icon:before {
+            /* 伪元素插入空格文本 */
+            content: '\3000';
+        }
+
+    </style>
+</head>
+<body>
+<div class="link" style="padding: 1px;">
+    <p><a href="#" class="link2"><i class="icon"></i>返回</a></p>
+</div>
+</body>
+</html>
