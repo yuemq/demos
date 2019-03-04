@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--
+    iframe和HTML5 blob实现JS,CSS,HTML直接当前页预览
+    https://www.zhangxinxu.com/wordpress/2017/08/iframe-html5-blob-code-view/
+    -->
+    <title>iframe和HTML5 blob实现JS,CSS,HTML直接当前页预览</title>
+    <style>
+        img{
+            background-color: #00a4e3;
+            width:400px;
+        }
+        p{
+            color:#cd0000;
+        }
+    </style>
+</head>
+<body>
+
+<iframe id="iframeObj1">
+
+</iframe>
+
+<div id="iframeObj2"></div>
+
+
+<script>
+var htmlIframe = "<p>test22</p><img src='https://mat1.gtimg.com/pingjs/ext2020/qqindex2018/dist/img/qq_logo_2x.png' onclick=\"console.log(window.parent.document.body.contains(this))\">";
+
+//方法一
+var doc = document.getElementById("iframeObj1").contentDocument || document.frames["iframeObj1"].document;
+doc.body.innerHTML = htmlIframe;
+
+//方法二
+var iframe = document.createElement("iframe");
+var blob = new Blob([htmlIframe], {type: "text/html"});
+iframe.src = URL.createObjectURL(blob);
+iframeObj2.appendChild(iframe);
+
+</script>
+</body>
+</html>
