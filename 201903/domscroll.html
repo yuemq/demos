@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--
+    DOM基础小测27期答疑文字版-窗体滚动二三事
+    https://www.zhangxinxu.com/wordpress/2019/01/dom-quiz-27-window-scroll/
+    -->
+    <title>窗体滚动事件</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        #backTop {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        div {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 300px;
+            border: 2px solid #333;
+            background-color: #fff;
+            overflow: auto;
+        }
+
+        #divBackTop {
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+
+<div id="srollContainer">
+    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem neque perferendis provident totam.
+        Accusantium at consequatur dignissimos est ex iste labore laborum laudantium nisi, qui quod rerum, tempora
+        veniam vero.</h1>
+    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aut ea id illo laboriosam modi quis sapiente
+        ullam. Aperiam at,
+        consequuntur cupiditate facilis fuga ipsa mollitia praesentium qui repudiandae voluptates.</h1>
+    <a href="#" id="divBackTop" hidden>div 返回顶部 ↑ </a>
+</div>
+<h1 style="margin-top:300px;">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci consectetur cupiditate dolor dolore, ducimus
+    eaque enim eos ipsa, nemo odit quisquam reiciendis reprehenderit repudiandae sed velit voluptate. Dolores,
+    libero!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dignissimos eaque et eveniet illum incidunt
+    laborum laudantium provident, quasi sequi. Cumque facilis ipsum iste laboriosam mollitia odio optio veritatis,
+    voluptate
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur et hic ipsum nemo nobis non quidem ullam
+    veritatis! Aperiam architecto eveniet facilis labore nemo nisi quaerat quasi tenetur voluptate.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aspernatur, commodi est fugit iure laborum magnam
+    minus, molestiae nam nobis nostrum obcaecati quasi quibusdam quos rerum similique ut velit voluptas!
+</h1>
+<a href="#" id="backTop" hidden>返回顶部 ↑</a>
+<script>
+//backTop
+window.addEventListener("scroll", function () {
+  //滚动高度
+  var vh = window.pageYOffset || document.documentElement.scrollTop;
+  //窗体高度
+  var winHeight = window.innerHeight || document.documentElement.clientHeight;
+  if (vh >= winHeight) {
+    backTop.removeAttribute("hidden");
+  } else {
+    backTop.setAttribute("hidden", true);
+  }
+});
+
+srollContainer.addEventListener("scroll", function () {
+  var vh = this.scrollTop;
+  var divHeight = this.clientHeight;
+  var divWidth = this.clientWidth;
+  divBackTop.style.top = divHeight - divBackTop.clientHeight + "px";
+  divBackTop.style.left = divWidth - divBackTop.clientWidth + "px";
+  if (vh >= divHeight) {
+    divBackTop.removeAttribute("hidden");
+  } else {
+    divBackTop.setAttribute("hidden", true);
+  }
+});
+
+(function () {
+
+})();
+
+</script>
+</body>
+</html>
