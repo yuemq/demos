@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提示从上面弹出，currentColor使用</title>
+    <style>
+        /*
+        translateX 50%，是相对于自身的宽度是算的；left:50% ,是相对于父类的宽度算的
+        这2个结合，实现水平居中和垂直居中问题
+        */
+        .con {
+            display: inline-block;
+            margin: 80px;
+        }
+
+        .tips {
+            position: relative;
+            color: #333;
+        }
+
+        .tips[data-title]::before, .tips[data-title]::after {
+            position: absolute;
+            left: 50%;
+            bottom: 100%;
+            transform: translate(-50%, -20px);
+            transition: .15s .15s;
+            opacity: 0;
+        }
+
+        .tips[data-title]::before {
+            content: attr(data-title);
+            border-radius: 3px;
+            padding: 4px 6px;
+            background-color: #333;
+            color: #fff;
+            font-size: 12px;
+            line-height: 18px;
+            white-space: nowrap;
+        }
+
+        .tips[data-title]::after {
+            display: inline-block;
+            content: '';
+            width: 0;
+            height: 0;
+            margin-bottom: -16px;
+            border: 8px solid transparent;
+            border-top-color: currentColor;
+        }
+
+        .tips[data-title]:hover::before, .tips[data-title]:hover::after {
+            opacity: 1;
+            transform: translate(-50%, -10px);
+        }
+
+    </style>
+</head>
+<body>
+<div class="con"><span class="tips" data-title="删除删除删除删除" data-title-dir="up">提示上</span></div>
+</body>
+</html>

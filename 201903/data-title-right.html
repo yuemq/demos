@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提示从右边弹出，还有currentColor的使用</title>
+    <style>
+        .con {
+            display: inline-block;
+            margin: 80px;
+        }
+
+        .tips {
+            position: relative;
+            color: #333;
+        }
+
+        /*right*/
+        .tips[data-title-dir="right"]:before, .tips[data-title-dir="right"]::after {
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translate(20px, -50%);
+            transition: .15s .15s;
+            opacity: 0;
+        }
+
+        .tips[data-title-dir="right"]:before {
+            content: attr(data-title);
+            border-radius: 3px;
+            padding: 4px 6px;
+            background-color: #333;
+            color: #fff;
+            font-size: 12px;
+            line-height: 18px;
+            white-space: nowrap;
+        }
+
+        .tips[data-title-dir="right"]:after {
+            display: inline-block; /* display:block 都可以 ，这行不可以省略，详细理解幽灵空白节点 */
+            content: '';
+            width: 0;
+            height: 0;
+            margin-left: -16px;
+            border: 8px solid transparent;
+            border-right-color: currentColor;
+        }
+
+        .tips[data-title-dir="right"]:hover::before, .tips[data-title-dir="right"]:hover::after {
+            opacity: 1;
+            transform: translate(10px, -50%);
+        }
+
+        /*蓝色*/
+        .tips[data-title-type="warn"]::before {
+            background-color: #00a4e3;
+        }
+
+        .tips[data-title-type="warn"]::after {
+            color: #00a4e3;
+        }
+
+        /*绿色*/
+        .tips[data-title-type="success"]::before {
+            background-color: #52c41a;
+        }
+
+        .tips[data-title-type="success"]::after {
+            color: #52c41a;
+        }
+
+    </style>
+</head>
+<body>
+<div class="con"><span class="tips" data-title="删除删除删除" data-title-dir="right">提示右</span></div>
+
+<div class="con"><span class="tips" data-title="删除删除删除" data-title-dir="right" data-title-type="warn">提示右蓝色</span></div>
+
+<div class="con"><span class="tips" data-title="删除删除删除" data-title-dir="right" data-title-type="success">提示右绿色</span>
+</div>
+
+</body>
+</html>

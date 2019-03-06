@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内联元素幽灵节点</title>
+    <style>
+
+        /*span 为 display: inline-block 时，div高度是20.8，
+        注释掉这行之后，span 的高度是20.8+8*2
+        记到到时候看 line-height 和vertical-align 深入理解  ？？？？？
+        */
+
+        span {
+            /*display: inline-block;*/
+            width: 0;
+            height: 0;
+            border: 8px solid #333;
+        }
+
+    </style>
+</head>
+<body>
+<div class="test2"><span></span></div>
+</body>
+</html>
