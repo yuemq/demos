@@ -12,4 +12,4 @@
 - 6.[窗体滚动事件](./201903/domscroll.html)
 - 7.[内联元素幽灵空白节点demo](./201903/inline-0.html)
 - 8.[提示信息从上面弹出](./201903/data-title-up.html)
-- 9.[提示信息从右面弹出](./201903/data-title-right.html)
+- 9.[提示信息从右面弹出，同时利用currentColor进行变色](./201903/data-title-right.html)
