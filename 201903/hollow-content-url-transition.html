@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS镂空图片transition过渡初加载背景色块问题解决</title>
+    <style>
+        /*
+        CSS镂空图片transition过渡初加载背景色块问题解决
+        https://www.zhangxinxu.com/wordpress/2016/02/css-hollow-image-for-transition-background-color-problem-fixed/
+        */
+
+        /*
+        本身是从上到下排列的，然后float 之后，就变成了一排
+        设置a 标签为inline-block，就会控制出高度
+        设置li 为relative，根据top 显示图片位置
+        */
+        .type {
+            max-width: 1000px;
+            min-width: 600px;
+            margin: 60px auto;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .type_li {
+            float: left;
+            width: 25%;
+            color: #c8c8c8;
+            text-decoration: none;
+            -webkit-transition: color .25s;
+            transition: color .25s;
+        }
+
+        .icon-type {
+            display: inline-block;
+            height: 140px;
+            overflow: hidden;
+            background-color: #c8c8c8;
+            -webkit-transition: background-color .25s;
+            transition: background-color .25s;
+        }
+
+        .icon-type:after {
+            position: relative;
+            content: url("img/icons-verify-type.png");
+        }
+
+        .icon-type-2:after {
+            top: -140px;
+        }
+
+        .icon-type-3:after {
+            top: -280px;
+        }
+
+        .icon-type-4:after {
+            top: -420px;
+        }
+
+        a:hover .icon-type {
+            background-color: #666;
+        }
+
+        a:hover {
+            color: #666;
+        }
+
+        a.selected {
+            color: #00a4e3;
+        }
+
+        a.selected .icon-type {
+            background-color: #00a4e3;
+        }
+
+    </style>
+</head>
+<body>
+<div id="type" class="type">
+    <a href="javascript:" class="type_li">
+        <i class="icon-type icon-type-1"></i>
+        <h2>企业</h2>
+    </a>
+    <a href="javascript:" class="type_li">
+        <i class="icon-type icon-type-2"></i>
+        <h2>商家</h2>
+    </a>
+    <a href="javascript:" class="type_li">
+        <i class="icon-type icon-type-3"></i>
+        <h2>我的</h2>
+    </a>
+    <a href="javascript:" class="type_li">
+        <i class="icon-type icon-type-4"></i>
+        <h2>设置</h2>
+    </a>
+</div>
+<script>
+if (document.querySelector) {
+  var doms = document.querySelectorAll(".type_li");
+  [].slice.call(doms).forEach(function (obj) {
+    obj.addEventListener("click", function () {
+      var selected = document.querySelector(".type_li.selected");
+      if (selected) {
+        selected.className = "type_li";
+      }
+      this.className = "type_li selected";
+    });
+  });
+}
+</script>
+</body>
+</html>
