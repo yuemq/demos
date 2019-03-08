@@ -24,3 +24,8 @@
 - 1:[小tips: 点击页面出现富强、民主这类文字动画效果](https://www.zhangxinxu.com/wordpress/2018/05/click-page-popup-text-tips/)
 
 
+##### 其他
+- 1:[CSSOM视图模式(CSSOM View Module)相关整理](https://www.zhangxinxu.com/wordpress/2011/09/cssom%e8%a7%86%e5%9b%be%e6%a8%a1%e5%bc%8fcssom-view-module%e7%9b%b8%e5%85%b3%e6%95%b4%e7%90%86%e4%b8%8e%e4%bb%8b%e7%bb%8d/)
+
+
+
