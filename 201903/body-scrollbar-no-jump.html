@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS vw让overflow:auto页面滚动条出现时不跳动</title>
+    <!--
+    小tip:CSS vw让overflow:auto页面滚动条出现时不跳动
+    https://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/
+    -->
+    <!--
+        根据上面网页，解决了跳动问题，但是细节还是没有想清楚 ？？？？
+
+        body设置width：100vw是为了让body撑满整个页面包括滚动条宽度，这样出现滚动条也不会让页面内容向左跳动，
+
+        下面的终极方案，解决了跳动问题，但是细节还是没有想清楚 ，而且宽度较小的时候，不会出现水平滚动条 ？？？？
+        html {
+            overflow-y: scroll;
+        }
+
+        :root {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        :root body {
+            position: absolute;
+        }
+
+        body {
+            width: 100vw;
+            overflow: hidden;
+        }
+    -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+        }
+
+        #con {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="con" style="margin: 20px;">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, eligendi placeat porro quas quia repellat
+    voluptas. Accusamus accusantium asperiores atque aut blanditiis enim fugit ipsa iste itaque necessitatibus nobis,
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto consequatur culpa cupiditate
+    dignissimos, doloremque eos facilis fugit harum libero magnam non quisquam rem saepe sapiente tenetur totam
+    veritatis voluptatibus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur dolorem eos
+    exercitationem facilis odit quam quis quisquam tenetur. A exercitationem explicabo fuga ipsam, nesciunt provident
+    sit soluta veniam voluptatem?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eaque fugiat
+    impedit. Culpa cumque dolor doloremque id provident quasi quia quidem quos unde voluptatem? Inventore itaque magnam
+    porro sit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam consectetur dolorem, doloribus et,
+    maxime nisi officia porro quisquam quod sapiente soluta unde voluptate. Corporis harum magnam modi sapiente
+    veritatis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi fuga, fugit impedit iusto maxime
+    mollitia omnis possimus quae quibusdam quidem quis quisquam recusandae reiciendis rerum sequi, similique veritatis
+    vero voluptates!
+</div>
+
+</body>
+</html>
