@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>利用vh，仿office样式</title>
+    <!--
+    https://www.zhangxinxu.com/wordpress/2012/09/new-viewport-relative-units-vw-vh-vm-vmin/
+    1:demo页面的宽高按照标准纸张的21:29.7的比例制定，因此，所有单位值都是使用的vh单位。
+    2:本demo<page>元素还可以设置float:left或inline-block两端/居中对齐等，让一屏的水平方向显示多个page页面，就如实际的office word一样。
+    -->
+    <style>
+        body {
+            background-color: #779AC8;
+        }
+
+        page {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            width: 69.3vh;
+            height: 98vh;
+            margin: 1vh auto;
+            padding: 12vh;
+            background: url("img/tl.png") 8vh 8vh no-repeat, url("img/tr.png") 59vh 8vh no-repeat,
+            url("img/bl.png") 8vh 88vh no-repeat, url("img/br.png") 59vh 88vh no-repeat;
+            background-color: #fff;
+            border: 1px solid #646464;
+            box-shadow: 0 0 15px rgba(0, 0, 0, .75);
+        }
+
+        page:after {
+            content: attr(data-pages);
+            position: absolute;
+            bottom: 4vh;
+            left: 10vh;
+            right: 10vh;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<page>
+    <p>word文档样式</p>
+</page>
+<page></page>
+<page></page>
+<script>
+var pages = document.querySelectorAll("page"), len = pages.length;
+for (var i = 0; i < len; i++) {
+  pages[i].setAttribute("data-pages", "第" + (i + 1) + "页 共" + len + "页");
+}
+
+</script>
+</body>
+</html>
