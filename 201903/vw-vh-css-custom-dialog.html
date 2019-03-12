@@ -50,16 +50,49 @@
     </style>
 </head>
 <body>
-
-<div id="con" style="margin: 20px;">
-    <img src="img/fengjing_9.jpg" alt="" width="50px" onclick="getDetail()">
+<h3>点击图片查看大图</h3>
+<h5>第一种方法：借用vw，vh来实现，可以用于多张幻灯片的浏览</h5>
+<h5>第二种方法：借用background 居中显示 来实现</h5>
+<div style="margin: 20px;">
+    <img src="img/fengjing_1.jpg" alt="" width="50px" onclick="getDetail()">
 
     <div id="box" onclick="hide()">
         <div class="dialog_box">
-            <img src="img/fengjing_9.jpg" width="200px" class="vw_vh_img">
+            <img src="img/fengjing_1.jpg" class="vw_vh_img">
         </div>
     </div>
 </div>
+
+<style>
+    #box2 {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0px;
+        background-color: rgba(0, 0, 0, .35);
+    }
+
+    div span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0px;
+        margin: 20px;
+        background: url("img/fengjing_9.jpg") center center no-repeat;
+        background-size: contain;
+    }
+</style>
+<div style="margin: 20px;">
+    <img src="img/fengjing_9.jpg" alt="" width="50px" onclick="getDetail2()">
+
+    <div id="box2" onclick="hide2()">
+        <span></span>
+    </div>
+</div>
+
 <script>
 function getDetail () {
   box.style.display = "block";
@@ -67,6 +100,14 @@ function getDetail () {
 
 function hide () {
   box.style.display = "none";
+}
+
+function getDetail2 () {
+  box2.style.display = "block";
+}
+
+function hide2 () {
+  box2.style.display = "none";
 }
 
 </script>
