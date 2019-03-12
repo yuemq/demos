@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹出框视区覆盖，弹出框水平垂直居中</title>
+    <!--
+    弹出框视区覆盖
+    https://www.zhangxinxu.com/wordpress/2012/09/new-viewport-relative-units-vw-vh-vm-vmin/
+    1: 实现视区覆盖  2：弹出框水平垂直居中，不管图片大小，都是一屏显示
+    -->
+    <style>
+        #box {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            width: 100vw;
+            height: 100%;
+            height: 100vh;
+            z-index: 2;
+            text-align: center;
+            background-color: rgba(0, 0, 0, .35);
+        }
+
+        .dialog_box {
+            display: inline-block;
+            border: 1px solid #ccc;
+            vertical-align: middle;
+        }
+
+        #box:after {
+            display: inline-block;
+            content: '';
+            width: 0px;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .vw_vh_img {
+            max-width: 90vw;
+            max-height: 90%;
+            max-height: 90vh;
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="con" style="margin: 20px;">
+    <img src="img/fengjing_9.jpg" alt="" width="50px" onclick="getDetail()">
+
+    <div id="box" onclick="hide()">
+        <div class="dialog_box">
+            <img src="img/fengjing_9.jpg" width="200px" class="vw_vh_img">
+        </div>
+    </div>
+</div>
+<script>
+function getDetail () {
+  box.style.display = "block";
+}
+
+function hide () {
+  box.style.display = "none";
+}
+
+</script>
+</body>
+</html>
