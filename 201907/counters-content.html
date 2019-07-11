@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>CSS计数器counters的string参数与嵌套实例页面</title>
+    <!--可以实现类似书本目录的样式-->
+    <style>
+        .reset {
+            padding-left: 20px;
+            counter-reset: wangxiaoer;
+        }
+
+        .counter:before {
+            content: counters(wangxiaoer, "-", decimal) ". ";
+            counter-increment: wangxiaoer;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="reset">
+    <div class="counter">我是王小二
+        <div class="reset">
+            <div class="counter">我是王小二的大儿子</div>
+            <div class="counter">我是王小二的二儿子
+                <div class="reset">
+                    <div class="counter">我是王小二的大孙子</div>
+                    <div class="counter">我是王小二的二孙子</div>
+                    <div class="counter">我是王小二的小孙子</div>
+                </div>
+            </div>
+            <div class="counter">我是王小二的三儿子</div>
+        </div>
+    </div>
+    <div class="counter">我是王小三</div>
+    <div class="counter">我是王小四
+        <div class="reset">
+            <div class="counter">我是王小四的大孙子</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

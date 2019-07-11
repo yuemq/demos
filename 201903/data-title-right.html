@@ -5,6 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--
+	https://codepen.io/xboxyan/pen/MLJjWQ
+	-->
     <title>提示从右边弹出，还有currentColor的使用</title>
     <style>
         .con {
@@ -71,10 +74,48 @@
             color: #52c41a;
         }
 
+
+/*bottom*/
+        .tips[data-title-dir="bottom"]:before, .tips[data-title-dir="bottom"]::after {
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translate(-50%, 20px);
+            transition: .15s .15s;
+            opacity: 1;
+        }
+
+        .tips[data-title-dir="bottom"]:before {
+            content: attr(data-title);
+            border-radius: 3px;
+            padding: 4px 6px;
+            background-color: #333;
+            color: #fff;
+            font-size: 12px;
+            line-height: 18px;
+            white-space: nowrap;
+        }
+
+        .tips[data-title-dir="bottom"]:after {
+            display: inline-block; /* display:block 都可以 ，这行不可以省略，详细理解幽灵空白节点 */
+            content: '';
+            width: 0;
+            height: 0;
+            margin-top: -16px;
+            border: 8px solid transparent;
+            border-bottom-color: currentColor;
+        }
+
+        .tips[data-title-dir="bottom"]:hover::before, .tips[data-title-dir="bottom"]:hover::after {
+            opacity: 1;
+            transform: translate(-50%, 10px);
+        }
+
     </style>
 </head>
 <body>
 <div class="con"><span class="tips" data-title="删除删除删除" data-title-dir="right">提示右</span></div>
+<div class="con"><span class="tips" data-title="删除删除删除" data-title-dir="bottom">提示下</span></div>
 
 <div class="con"><span class="tips" data-title="删除删除删除" data-title-dir="right" data-title-type="warn">提示右蓝色</span></div>
 

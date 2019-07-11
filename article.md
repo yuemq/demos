@@ -30,6 +30,9 @@
 - 3:[近期手机网页项目一些杂碎心得分享](https://www.zhangxinxu.com/wordpress/2012/08/mobile-wap-page-knowledge-share/)
 - 4:[移动Web开发实战](https://blog.csdn.net/u013778905/column/info/17526)
 - 5:[如何在Vue项目中使用vw实现移动端适配](https://www.w3cplus.com/mobile/vw-layout-in-vue.html)
+- 6:[viewports剖析](https://www.w3cplus.com/css/viewports.html)
+
+
 
 
 
@@ -77,6 +80,9 @@
 - 5:[拜拜了,浮动布局-基于display:inline-block的列表布局](https://www.zhangxinxu.com/wordpress/2010/11/%e6%8b%9c%e6%8b%9c%e4%ba%86%e6%b5%ae%e5%8a%a8%e5%b8%83%e5%b1%80-%e5%9f%ba%e4%ba%8edisplayinline-block%e7%9a%84%e5%88%97%e8%a1%a8%e5%b8%83%e5%b1%80/)
 
 
+##### 特效
+- 1:[“蝉原则”与CSS3随机多背景随机圆角等效果](https://www.zhangxinxu.com/wordpress/2017/02/%e8%9d%89%e5%8e%9f%e5%88%99-background-border-radius/)
+- 2:[伪类匹配列表数目实现微信群头像CSS布局的技巧](https://www.zhangxinxu.com/wordpress/2019/03/nth-last-child-css-layout/)
 
 
 
